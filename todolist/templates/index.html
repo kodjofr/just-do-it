@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}
+my tasks |
+{% endblock title %}
+
+
+
+{% block content %}
+    <h1>my todolist</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{task_form.title}}
+        <button type="submit">Add</button>
+    </form>
+
+    <ol>
+        {% for task in tasks %}
+            <li>{{task.title}}</li>
+    
+        {% endfor %}
+    </ol>
+
+{% endblock content %}
